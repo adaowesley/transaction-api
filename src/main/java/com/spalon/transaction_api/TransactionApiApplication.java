@@ -1,4 +1,4 @@
-package com.spalon.itau_challenge;
+package com.spalon.transaction_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

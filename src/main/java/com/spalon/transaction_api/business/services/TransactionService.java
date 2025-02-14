@@ -1,4 +1,4 @@
-package com.spalon.itau_challenge.business.services;
+package com.spalon.transaction_api.business.services;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.spalon.itau_challenge.business.model.Transaction;
-import com.spalon.itau_challenge.infrastructure.exceptions.TransactionException;
+import com.spalon.transaction_api.business.model.Transaction;
+import com.spalon.transaction_api.infrastructure.exceptions.TransactionException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

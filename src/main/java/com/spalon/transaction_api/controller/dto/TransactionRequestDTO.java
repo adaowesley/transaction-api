@@ -1,4 +1,4 @@
-package com.spalon.itau_challenge.controller.dto;
+package com.spalon.transaction_api.controller.dto;
 
 import java.time.OffsetDateTime;
 

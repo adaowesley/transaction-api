@@ -1,4 +1,4 @@
-package com.spalon.itau_challenge.infrastructure.exceptions;
+package com.spalon.transaction_api.infrastructure.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

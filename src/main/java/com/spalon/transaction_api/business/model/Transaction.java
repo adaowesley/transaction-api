@@ -1,4 +1,4 @@
-package com.spalon.itau_challenge.business.model;
+package com.spalon.transaction_api.business.model;
 
 import java.time.OffsetDateTime;
 

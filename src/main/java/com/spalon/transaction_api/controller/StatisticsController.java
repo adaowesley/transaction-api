@@ -1,4 +1,4 @@
-package com.spalon.itau_challenge.controller;
+package com.spalon.transaction_api.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spalon.itau_challenge.business.services.StatisticsService;
-import com.spalon.itau_challenge.controller.dto.StatisticsResponseDTO;
+import com.spalon.transaction_api.business.services.StatisticsService;
+import com.spalon.transaction_api.controller.dto.StatisticsResponseDTO;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

@@ -1,12 +1,12 @@
-package com.spalon.itau_challenge.business.services;
+package com.spalon.transaction_api.business.services;
 
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.spalon.itau_challenge.business.model.Transaction;
-import com.spalon.itau_challenge.controller.dto.StatisticsResponseDTO;
+import com.spalon.transaction_api.business.model.Transaction;
+import com.spalon.transaction_api.controller.dto.StatisticsResponseDTO;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
