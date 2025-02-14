@@ -11,8 +11,7 @@ public class TransactionMapper {
     public Transaction toTransaction(TransactionRequestDTO transactionRequestDTO) {
         return new Transaction(
                 transactionRequestDTO.value(),
-                transactionRequestDTO.dateTime()
-        );
+                transactionRequestDTO.dateTime());
     }
 
 }
