@@ -1,5 +1,6 @@
 package com.spalon.transaction_api.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/statistic")
 public class StatisticsController {
 
+    @Autowired
     private final StatisticsService statisticsService;
 
     @GetMapping
-     @Operation(description = "Endpoint responsible for getting transaction statistics")
+    @Operation(description = "Endpoint responsible for getting transaction statistics")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Transaction added successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request data"),

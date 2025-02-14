@@ -1,5 +1,6 @@
 package com.spalon.transaction_api.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +22,11 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/transaction")
-public class TransacationController {
+public class TransactionController {
 
+    @Autowired
     private final TransactionService transactionService;
+    @Autowired
     private final TransactionMapper transactionMapper;
 
     @PostMapping
