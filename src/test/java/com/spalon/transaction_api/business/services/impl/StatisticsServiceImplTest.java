@@ -1,6 +1,8 @@
 package com.spalon.transaction_api.business.services.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.OffsetDateTime;
@@ -42,6 +44,8 @@ public class StatisticsServiceImplTest {
         assertEquals(0.0, response.avg());
         assertEquals(0.0, response.max());
         assertEquals(0.0, response.min());
+
+        verify(transactionService, times(1)).getTransaction(1);
     }
 
     @Test

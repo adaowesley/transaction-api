@@ -1,5 +1,6 @@
 package com.spalon.transaction_api.business.services.impl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -44,14 +45,18 @@ public class TransactionServiceImplTest {
     public void testAddTransaction_FutureDate() {
         Transaction transaction = new Transaction(100.0, OffsetDateTime.now().plusDays(1));
 
-        assertThrows(TransactionException.class, () -> transactionService.addTransaction(transaction));
+        TransactionException exception = assertThrows(TransactionException.class,
+                () -> transactionService.addTransaction(transaction));
+        assertEquals("Transaction date cannot be in the future", exception.getMessage());
     }
 
     @Test
     public void testAddTransaction_NegativeValue() {
         Transaction transaction = new Transaction(-100.0, OffsetDateTime.now().minusDays(1));
 
-        assertThrows(TransactionException.class, () -> transactionService.addTransaction(transaction));
+        TransactionException exception = assertThrows(TransactionException.class,
+                () -> transactionService.addTransaction(transaction));
+        assertEquals("Transaction value cannot be negative", exception.getMessage());
     }
 
     @Test
@@ -84,6 +89,6 @@ public class TransactionServiceImplTest {
         List<Transaction> result = transactionService.getTransaction(interval);
 
         verify(transactionRepository, times(1)).getTransaction(interval);
-        assert (result.equals(transactions));
+        assertEquals(transactions, result);
     }
 }

@@ -30,7 +30,8 @@ public class StatisticsController {
             @ApiResponse(responseCode = "400", description = "Invalid request data"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
-    public ResponseEntity<StatisticsResponseDTO> getStatistics(@RequestParam(required = false, defaultValue = "60") Integer interval) {
+    public ResponseEntity<StatisticsResponseDTO> getStatistics(
+            @RequestParam(name = "interval", required = false, defaultValue = "60") Integer interval) {
         return ResponseEntity.ok(statisticsService.getStatistics(interval));
     }
 
