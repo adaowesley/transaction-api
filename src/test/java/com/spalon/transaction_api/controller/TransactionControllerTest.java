@@ -1,6 +1,7 @@
 package com.spalon.transaction_api.controller;
 
-import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.OffsetDateTime;
@@ -32,24 +33,28 @@ public class TransactionControllerTest {
     @Test
     void testAddTransaction() throws Exception {
         OffsetDateTime dateTime = OffsetDateTime.of(2025, 1, 1, 12, 0, 0, 0, ZoneOffset.UTC);
+        Transaction transaction = new Transaction(10.0, dateTime);
         TransactionRequestDTO transactionRequestDTO = new TransactionRequestDTO(10.0, dateTime);
-        when(transactionMapper.toTransaction(transactionRequestDTO)).thenReturn(new Transaction(10.0, dateTime));
+        when(transactionMapper.toTransaction(transactionRequestDTO)).thenReturn(transaction);
 
         webTestClient.post()
                 .uri("/transaction")
                 .bodyValue(transactionRequestDTO)
                 .exchange()
                 .expectStatus().isCreated();
+
+        verify(transactionService, times(1)).addTransaction(transaction);
     }
 
     @Test
     void testRemoveAllTransactions() {
-        doNothing().when(transactionService).removeAllTransactions();
 
         webTestClient.delete()
                 .uri("/transaction")
                 .exchange()
-                .expectStatus().isOk();
-    }
+                .expectStatus()
+                .isOk().expectBody().isEmpty();
 
+        verify(transactionService, times(1)).removeAllTransactions();
+    }
 }

@@ -60,6 +60,15 @@ public class TransactionServiceImplTest {
     }
 
     @Test
+    public void testAddTransaction_ZeroValue() {
+        Transaction transaction = new Transaction(0.0, OffsetDateTime.now().minusDays(1));
+
+        transactionService.addTransaction(transaction);
+
+        verify(transactionRepository, times(1)).addTransaction(transaction);
+    }
+
+    @Test
     public void testRemoveTransaction() {
         Transaction transaction = new Transaction(100.0, OffsetDateTime.now());
 
